@@ -1,10 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Nav = () => {
     return (
         <nav>
-            <div ckassName="nav__container">
+            <div className="nav__container">
                 <a href="/">
                     <img src="" alt="" />                
                 </a>
@@ -22,10 +23,12 @@ const Nav = () => {
                             About
                         a
                     <button className="btn__menu">
-                        <FontAwesomeIcon icon= {faBars} />
+                        <FontAwesomeIcon icon = {faBars} />
                     </button>                    
                 ul
             </div>
         </nav>
     );
 }
+
+export default Nav;
