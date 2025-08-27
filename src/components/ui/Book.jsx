@@ -12,7 +12,7 @@ const rating = 4;
 <FontAwesomeIcon icon= "star" />;
 <FontAwesomeIcon icon= "star" />;
 
-    console.log(book)
+   
     return (
        <div className="book">
                             <a href="">
