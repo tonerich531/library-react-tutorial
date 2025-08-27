@@ -4,7 +4,8 @@ import Home from './Pages/Home';
 import Books from './Pages/Books';
 import Footer from './components/Footer';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
-import { books } from "../data";
+import { books } from "./data";
+import BookInfo from './Pages/BookInfo';
 
 
 
@@ -15,7 +16,8 @@ function App() {
     <div className="App">
       <Nav />
       <Route path="/" exact component = {Home} />
-      <Route path="/books" render = {() => <Books books={books} />} />
+      <Route path="/books" exact render = {() => <Books books={books} />} />
+      <Route path="/books/1" render = {() => <BookInfo books={books} />} />
       <Footer />
     </div>
   </Router>

@@ -1,6 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core";
+import { Link } from "react-router-dom"
+import Rating from "./Rating";
 
 
 
@@ -15,23 +17,18 @@ const rating = 4;
    
     return (
        <div className="book">
-                            <a href="">
+                            <Link to="/books/1">
                                 <figure className="book__img--wrapper">
                                     <img src={ book.url } className="book__img" alt="" />
                                 </figure>
-                            </a>
+                            </Link>
                             <div className="book__title">
-                                <a href="/" className="book__title--link">
+                                <Link to="/books/1" className="book__title--link">
                                     {book.title}
-                                </a>
+                                </Link>
                             </div>
                             <div className="book__ratings">
-                                {
-                                new Array(Math.floor(book.rating)).fill(0).map((_, index) => <FontAwesomeIcon icon= "star" key={(index)}/>)
-                                }
-                                {
-                                    !Number.isInteger(book.rating) && <FontAwesomeIcon icon= "star-half-alt" />
-                                }
+                                <Rating rating={book.rating} />
                             </div>
                             <div className="book__price">
                                 {

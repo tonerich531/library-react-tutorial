@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes, } from "@fortawesome/free-solid-svg-icons";
 import LibraryLogo from "../assets/Library.svg";
+import { Link } from 'react-router-dom'
 
 
 
@@ -17,32 +18,32 @@ const Nav = () => {
     return (
         <nav>
             <div className="nav__container">
-                <a href="/">
+                <Link to="/">
                     <img src={LibraryLogo} className="logo" alt="" />
-                </a>
+                </Link>
                 <ul className= "nav__links">
                     <li className= "nav__link">
-                        <a href="/" className="nav__list">
+                        <Link to="/" className="nav__list">
                             Home
-                        </a>
+                        </Link>
                     </li>
                     <li className= "nav__link">
-                        <a href="/" className="nav__list">
+                        <Link to="/" className="nav__list">
                             Library
-                        </a>
+                        </Link>
                     </li>
                     <li className= "nav__link">
-                        <a href="/" className="nav__list">
+                        <Link to="/" className="nav__list">
                             About
-                        </a>
+                        </Link>
                     </li>
                     <button className="btn__menu" onClick={openMenu}>
                         <FontAwesomeIcon icon = {faBars} />
                     </button>
                     <li className= "nav__icon">
-                        <a href="/cart" className="nav__link">
-                        <FontAwesomeIcon icon= "shopping-cart" />
-                        </a>
+                        <Link to="/cart" className="nav__link">
+                            <FontAwesomeIcon icon= "shopping-cart" />
+                        </Link>
                         <span className="cart__length">2</span>
                     </li>                
                 </ul>
@@ -52,19 +53,19 @@ const Nav = () => {
                     </button>
                     <ul className="menu__links">
                         <li className="menu__link">
-                            <a href="/" className="menu__list">
+                            <Link to="/" className="menu__list">
                                 Home
-                            </a>
+                            </Link>
                         </li>
                         <li className="menu__link">
-                            <a href="/" className="menu__list">
+                            <Link to="/" className="menu__list">
                                 Books
-                            </a>
+                            </Link>
                         </li>
                         <li className="menu__link">
-                            <a href="/cart" className="menu__list">
+                            <Link to="/cart" className="menu__list">
                                 Cart
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
