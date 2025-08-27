@@ -7,6 +7,13 @@ import LibraryLogo from "../assets/Library.svg";
 
 
 const Nav = () => {
+    function openMenu() {
+        document.body.classList += "menu--open"
+    }
+
+    function closeMenu() {
+        document.body.classList.remove("menu--open");
+    }
     return (
         <nav>
             <div className="nav__container">
@@ -29,7 +36,7 @@ const Nav = () => {
                             About
                         </a>
                     </li>
-                    <button className="btn__menu">
+                    <button className="btn__menu" onClick={openMenu}>
                         <FontAwesomeIcon icon = {faBars} />
                     </button>
                     <li className= "nav__icon">
@@ -39,7 +46,7 @@ const Nav = () => {
                         <span className="cart__length">2</span>
                     </li>                
                 </ul>
-                <div className="menu__backdrop">
+                <div className="menu__backdrop" onClick={closeMenu}>
                     <button className="btn__menu btn__menu--close">
                         <FontAwesomeIcon icon = {faTimes} />
                     </button>

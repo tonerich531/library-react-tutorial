@@ -203,11 +203,11 @@ button:active {
 }
 
 .menu__list {
+  color: white;
   padding: 32px 0;
 }
 
-.menu__link {
-  color: white;
+.menu__link {  
   font-size: 40px;
 }
 
