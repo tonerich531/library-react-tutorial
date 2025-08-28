@@ -52,9 +52,9 @@ const Books = ({ books: initialBooks }) => {
             </main>
         </div>
 
-    )
+    );
 
-}
+};
 
 
 export default Books;

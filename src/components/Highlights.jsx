@@ -29,6 +29,6 @@ const Highlights = () => {
             </div>
         </section>
     );
-}
+;}
 
 export default Highlights;

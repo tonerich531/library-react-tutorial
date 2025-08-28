@@ -17,7 +17,7 @@ const Footer = () => {
                     </a>
                     <div className="footer__list">
                         <Link to="/" className="footer__link">Home</Link>
-                        <Link to="/" className="footer__link nocursor">About</Link>
+                        <span className="footer__link no-cursor">About</span>
                         <Link to="/books" className="footer__link nocursor">Books</Link>
                         <Link to="/cart" className="footer__link">Cart</Link>
                     </div>
@@ -27,8 +27,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
-    );
-    
-}
+    );    
+};
 
 export default Footer;

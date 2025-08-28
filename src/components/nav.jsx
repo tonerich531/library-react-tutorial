@@ -29,12 +29,7 @@ const Nav = () => {
                     </li>
                     <li className= "nav__link">
                         <Link to="/" className="nav__list">
-                            Library
-                        </Link>
-                    </li>
-                    <li className= "nav__link">
-                        <Link to="/" className="nav__list">
-                            About
+                            Books
                         </Link>
                     </li>
                     <button className="btn__menu" onClick={openMenu}>
@@ -58,7 +53,7 @@ const Nav = () => {
                             </Link>
                         </li>
                         <li className="menu__link">
-                            <Link to="/" className="menu__list">
+                            <Link to="/books" className="menu__list">
                                 Books
                             </Link>
                         </li>

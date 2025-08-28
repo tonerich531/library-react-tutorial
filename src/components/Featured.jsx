@@ -26,6 +26,6 @@ const Featured = () => {
             </div>
         </section>
     );
-}
+};
 
 export default Featured;

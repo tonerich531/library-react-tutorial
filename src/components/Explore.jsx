@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 
 const Explore = () => {
@@ -10,7 +11,7 @@ const Explore = () => {
                         <h2 className="section__title">
                             Explore more <span className="purple">Books</span>                            
                         </h2>
-                        <a href="/books"></a>
+                        <Link to="/books"></Link>
                         <button className="btn">Explore books</button>
                     </div>
                 </div>
