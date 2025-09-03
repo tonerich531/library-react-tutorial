@@ -1,6 +1,5 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icon } from "@fortawesome/fontawesome-svg-core";
 import { Link } from "react-router-dom"
 import Rating from "./Rating";
 import Price from "./Price";
@@ -8,23 +7,20 @@ import Price from "./Price";
 
 
 const Book = ({ book }) => {
-const rating = 4;
+function imageLoad() {
 
-<FontAwesomeIcon icon= "star" />;
-<FontAwesomeIcon icon= "star" />;
-<FontAwesomeIcon icon= "star" />;
-<FontAwesomeIcon icon= "star" />;
+}
 
    
     return (
        <div className="book">
-            <Link to="/books/1">
+            <Link to={`/books/${book.id}`}>
                 <figure className="book__img--wrapper">
-                    <img src={ book.url } className="book__img" alt="" />
+                    <img src={ book.url } className="book__img" alt="" onLoad={imageLoad} />
                 </figure>
             </Link>
             <div className="book__title">
-                <Link to={'/books/${book.id}'} className="book__title--link">
+                <Link to={`/books/${book.id}`} className="book__title--link">
                     {book.title}
                 </Link>
             </div>

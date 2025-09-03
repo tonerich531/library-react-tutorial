@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useParams } from "react-router-dom";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Rating from "../components/ui/Rating";
 import Price from "../components/ui/Price";
 
@@ -9,9 +8,21 @@ import Price from "../components/ui/Price";
 
 
 
-const BookInfo = ({ books }) => {
-    const param = useParams
-    console.log(param)
+
+const BookInfo = ({ books, addToCart }) => {
+    const { id } = useParams
+    const book = books.find(book => +book.id === +id);
+    
+
+    function addBookToCart(book) {
+        addToCart(book);
+    }
+
+    function bookExistOnCart() {
+        return cart.find(book => book.id === +id);
+    }
+
+        
     return (
         <div id="books__body">
             <main id="books__main">
@@ -22,23 +33,24 @@ const BookInfo = ({ books }) => {
                                 <FontAwesomeIcon icon = "arrow-left" />
                             </Link>
                             <Link to="/books" className='book__link'>
-                            <h2 className="book__selected--title--top">
-                                Book</h2>                                                           
+                                <h2 className="book__selected--title--top">
+                                    Book
+                                </h2>                                                           
                             </Link>
                             <div className="book__selected">
                                 <figure className="book__selected--figure">
-                                    <img src="https://m.media-amazon.com/images/I/61mIq2iJUXL._AC_UF1000,1000_QL80_.jpg" alt="" />
+                                    <img src={ book.url } alt="" />
                                 </figure>
                                 <div className="book__selected--description">
-                                    <h2 className="book__selected--title">Crack the Code Interview</h2>                                        
-                                    <Rating rating ="4.5" />
+                                    <h2 className="book__selected--title">{book.title}</h2>                                        
+                                    <Rating rating ={book.rating} />
                                     <div className="book__selected--price">
-                                        <Price originalPrice={50} salePrice={20} />
+                                        <Price originalPrice={book.originalPrice} salePrice={book.salePrice} />
                                     </div>
                                     <div className="book__summary">
-                                        <div className="book__summary--title">
+                                        <h3 className="book__summary--title">
                                             Summary
-                                        </div>
+                                        </h3>
                                         <p className="book__summary__para">
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quasi, dicta, obcaecati aliquam ipsum praesentium cumque adipisci quia est deserunt provident reiciendis voluptatem non excepturi eius error, nisi voluptate saepe.
                                         </p>
@@ -46,9 +58,15 @@ const BookInfo = ({ books }) => {
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quasi, dicta, obcaecati aliquam ipsum praesentium cumque adipisci quia est deserunt provident reiciendis voluptatem non excepturi eius error, nisi voluptate saepe.
                                         </p>
                                     </div>
-                                    <button className="btn">
+                                    {bookExistOnCart() ? (
+                                        <Link to= {`/cart`} className="book__link"> 
+                                            <button className="btn">Checkout</button>
+                                        </Link>
+                                        ) : (
+                                        <button className="btn" onClick={() => addBookToCart(book)}>
                                         Add to Cart
-                                    </button>
+                                    </button>)
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -63,7 +81,7 @@ const BookInfo = ({ books }) => {
                             </h2>
                         </div>
                     </div>
-                </div>
+                </div>            
             </main>
         </div>
 
