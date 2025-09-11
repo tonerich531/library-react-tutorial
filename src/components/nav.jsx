@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 const Nav = () => {
     function openMenu() {
-        document.body.classList += "menu--open"
+        document.body.classList += " menu--open"
     }
 
     function closeMenu() {

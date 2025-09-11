@@ -1,4 +1,3 @@
-import "./App.css";
 import { useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import Home from "./Pages/Home";
@@ -17,11 +16,11 @@ function App() {
   const [cart, setCart] = useState([]);
 
   function addToCart(book) {
-    setCart([ ...cart, book ])
+    setCart([...cart, book])
   }
 
   useEffect(() => {
-    console.log(cart);
+    console.log(cart)
   }, [cart])
 
 

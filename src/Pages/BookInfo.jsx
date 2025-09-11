@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useParams } from "react-router-dom";
 import Rating from "../components/ui/Rating";
 import Price from "../components/ui/Price";
+import Book from "../components/ui/Book";
 
 
 
@@ -11,11 +12,11 @@ import Price from "../components/ui/Price";
 
 const BookInfo = ({ books, addToCart }) => {
     const { id } = useParams
-    const book = books.find(book => +book.id === +id);
-    
+    const book = books.find(book => +book.id === +id)
+        
 
-    function addBookToCart(book) {
-        addToCart(book);
+    function addBookToCart(book) {        
+        addToCart(book)
     }
 
     function bookExistOnCart() {
@@ -35,7 +36,7 @@ const BookInfo = ({ books, addToCart }) => {
                             <Link to="/books" className='book__link'>
                                 <h2 className="book__selected--title--top">
                                     Book
-                                </h2>                                                           
+                                </h2>                                       
                             </Link>
                             <div className="book__selected">
                                 <figure className="book__selected--figure">
@@ -51,10 +52,10 @@ const BookInfo = ({ books, addToCart }) => {
                                         <h3 className="book__summary--title">
                                             Summary
                                         </h3>
-                                        <p className="book__summary__para">
+                                        <p className="book__summary--para">
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quasi, dicta, obcaecati aliquam ipsum praesentium cumque adipisci quia est deserunt provident reiciendis voluptatem non excepturi eius error, nisi voluptate saepe.
                                         </p>
-                                        <p className="book__summary__para">
+                                        <p className="book__summary--para">
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quasi, dicta, obcaecati aliquam ipsum praesentium cumque adipisci quia est deserunt provident reiciendis voluptatem non excepturi eius error, nisi voluptate saepe.
                                         </p>
                                     </div>
@@ -64,8 +65,8 @@ const BookInfo = ({ books, addToCart }) => {
                                         </Link>
                                         ) : (
                                         <button className="btn" onClick={() => addBookToCart(book)}>
-                                        Add to Cart
-                                    </button>)
+                                            Add to Cart
+                                        </button>)
                                     }
                                 </div>
                             </div>
@@ -80,6 +81,12 @@ const BookInfo = ({ books, addToCart }) => {
                                 Recommended Books
                             </h2>
                         </div>
+                        {
+                            books
+                            .filter((book) => book.rating === 5 && +book.id !== +id)
+                            .slice(0,4)
+                            .map((book) => <Book book={book} key={book.id} />)
+                        }
                     </div>
                 </div>            
             </main>
