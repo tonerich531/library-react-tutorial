@@ -51,7 +51,7 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
                                 })}
                         </div>
                             {
-                            cart.length === 0 (
+                            cart.length === 0 && (
                             <div className="cart__empty">
                                 <img src={EmptyCart} alt="" className="cart__empty--img" />
                                 <h2>You don't have any books in your cart</h2>
@@ -75,7 +75,7 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
                                 <span>Total</span>
                                 <span>${total()}</span>
                             </div>
-                            <button className="btn btn__menu no-cursor" onClick={alert(`Haven't done this yet`)}>Proceed to Checkout</button>
+                            <button className="btn btn__menu no-cursor">Proceed to Checkout</button>
                         </div>
                     )}
                 </div>

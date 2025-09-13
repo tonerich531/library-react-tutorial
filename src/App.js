@@ -13,7 +13,7 @@ import Cart from "./Pages/Cart";
 
 
 function App() {
-  const [cart, setCart, removeItem ] = useState([]);
+  const [cart, setCart ] = useState([]);
 
   function addToCart(book) {
     setCart([...cart, {...book, quantity : 1}])
