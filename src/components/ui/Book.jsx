@@ -10,7 +10,8 @@ const Book = ({ book }) => {
     const [img, setImg] = useState()
     const mountedRef = useRef(true)
 
-    useEffect(() => { 
+    useEffect(() => {
+        mountedRef.current= true
     const image= new Image()
         image.src = book.url
         image.onload = () => {
